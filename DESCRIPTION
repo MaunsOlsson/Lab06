@@ -1,0 +1,29 @@
+Package: Lab06
+Type: Package
+Title: Lab06 Package
+Version: 0.1.0
+Authors@R: c(
+    person(
+      "Pontus", "Olsson",
+      email = "ponol900@student.liu.com",
+      role = c("aut")
+    ),
+    person(
+      "Aron", "Enström",
+      email = "aroen488@student.liu.com",
+      role = c("aut", "cre")
+    )
+  )
+Description: This package contains all files required for lab6.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Suggests: 
+    knitr,
+    rmarkdown,
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
+VignetteBuilder: knitr
+Depends: 
+    R (>= 3.5)
+RoxygenNote: 7.3.3
