@@ -35,15 +35,10 @@ knapsack_dynamic <- function(x, W) {
   }
 
 
-
-
-
   elements <- function(m, a, b) {
-      if (a == 1) {
-        browser()
-      }
+
       if(m[a, b] ==  m[a-1, b]){
-        elements(m[1:(a-1), ], a-1, b)
+        elements(m, a-1, b)
       } else {
         # Item in the best combination and its weight
         return(c(a-1, x$w[a-1]))
@@ -63,13 +58,14 @@ knapsack_dynamic <- function(x, W) {
     B <- B - el[2]
     items <- c(items, el[1])
 
-    if(A == 1 || B == 1){
-      reached_zero == TRUE
+    if(m[A, B] == 0){
+      reached_zero <- TRUE
     }
 
   }
 
 
-  return(m[n+1, W+1])
+  return(list(value = m[n+1, W+1], elements = items))
 
 }
+
