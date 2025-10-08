@@ -30,7 +30,7 @@ knapsack_objects <- data.frame(w = sample(1:4000, size = n, replace = TRUE),
 #' knapsack_dynamic(x = knapsack_objects[1:8,], W = 2000)
 #'
 #'
-knapsack_brute_force <- function(x, W) {
+old_knapsack_brute_force <- function(x, W) {
   stopifnot(is.data.frame(x))
   stopifnot(all(c("w", "v") %in% colnames(x)))
   stopifnot(is.numeric(x$w) & is.numeric(x$v))
@@ -38,21 +38,26 @@ knapsack_brute_force <- function(x, W) {
   stopifnot(is.numeric(W))
   stopifnot(W > 0)
   stopifnot(W <= 2^31)
+
   n <- nrow(x)
-  max_alt <- 2^n - 1
-  availComb <- lapply(1:max_alt, function(i){
-    bits <- as.integer(intToBits(i)[1:n])
-    list(value = sum(x$v * bits),
-         weight = sum(x$w * bits),
-         elements = as.integer(rownames(x))[as.logical(bits)]
-    )
-  })
-  filtered_values <- sapply(availComb, function(i){
+  index <- combn(rep(c(TRUE, FALSE), n), n)
+  browser()
+  test <- lapply(1:ncol(index), function(i) {
+                 list( value = sum(x[index[, i], ]$v),
+                       weight = sum(x[index[, i], ]$w),
+                       elements = which(index[, i]))}
+
+                 )
+
+  filtered_values <- sapply(test, function(i){
     if(i$weight < W){
+
       return(i$value)
     }
+
     return(0)})
 
-  return(list(value = availComb[[which.max(filtered_values)]]$value,
-              elements = availComb[[which.max(filtered_values)]]$elements))
+  return(list(value = test[[which.max(filtered_values)]]$value,
+              elements = test[[which.max(filtered_values)]]$elements))
+
 }
