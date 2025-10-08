@@ -33,8 +33,8 @@ knapsack_dynamic <- function(x, W) {
 
   n <- nrow(x)
 
-  m <- matrix(0, (n+1), (W+1))
 
+  m <- matrix(0, (n+1), (W+1))
   for (i in 2:(n+1)) {
     for (j in 2:(W+1)) {
       if (x$w[i-1] > j) {
@@ -46,7 +46,6 @@ knapsack_dynamic <- function(x, W) {
     }
 
   }
-
 
   elements <- function(m, a, b) {
 
@@ -81,4 +80,3 @@ knapsack_dynamic <- function(x, W) {
   return(list(value = m[n+1, W+1], elements = items))
 
 }
-
