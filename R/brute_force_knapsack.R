@@ -82,12 +82,3 @@ knapsack_brute_force <- function(x, W, parallel = FALSE) {
               elements = availComb[[which.max(filtered_values)]]$elements))
 }
 
-# start.time <- Sys.time()
-# knapsack_brute_force(x = knapsack_objects[1:20,], W = 2000, parallel = TRUE)
-# end.time <- Sys.time()
-# end.time - start.time
-#
-# start.time <- Sys.time()
-# knapsack_brute_force(x = knapsack_objects[1:20,], W = 2000, parallel = FALSE)
-# end.time <- Sys.time()
-# end.time - start.time
