@@ -41,7 +41,6 @@ old_knapsack_brute_force <- function(x, W) {
 
   n <- nrow(x)
   index <- combn(rep(c(TRUE, FALSE), n), n)
-  browser()
   test <- lapply(1:ncol(index), function(i) {
                  list( value = sum(x[index[, i], ]$v),
                        weight = sum(x[index[, i], ]$w),
