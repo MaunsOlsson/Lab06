@@ -2,6 +2,7 @@
 # Lab06
 
 <!-- badges: start -->
+[![R-CMD-check](https://github.com/MaunsOlsson/Lab06/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/MaunsOlsson/Lab06/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 The goal of Lab06 is to ...
