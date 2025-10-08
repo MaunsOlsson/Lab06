@@ -16,6 +16,7 @@ knapsack_objects <- data.frame(w = sample(1:4000, size = n, replace = TRUE),
 #'
 #' @param x x is a dataframe containing 2 columns, positive weights and values of the objects.
 #' @param W The maximum weight of the knapsack.
+#' @param parallel TRUE or FALSE, decides if parallel computation should be used. Might not be faster on all computers.
 #'
 #' @returns The value of the best knapsack and the elements included in it.
 #' @importFrom parallel parSapply parLapply
@@ -93,11 +94,11 @@ knapsack_brute_force <- function(x, W, parallel = FALSE) {
 }
 
 start.time <- Sys.time()
-knapsack_brute_force(x = knapsack_objects[1:18,], W = 2000, parallel = TRUE)
+knapsack_brute_force(x = knapsack_objects[1:20,], W = 2000, parallel = TRUE)
 end.time <- Sys.time()
 end.time - start.time
 
 start.time <- Sys.time()
-knapsack_brute_force(x = knapsack_objects[1:18,], W = 2000, parallel = FALSE)
+knapsack_brute_force(x = knapsack_objects[1:20,], W = 2000, parallel = FALSE)
 end.time <- Sys.time()
 end.time - start.time
