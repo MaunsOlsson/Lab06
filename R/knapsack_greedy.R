@@ -1,6 +1,6 @@
 #' knapsack_greedy
 #' @description
-#' An approximation to the knapsack problem that runs in XXX time.
+#' An approximation to the knapsack problem that runs in O(n log(n)) time.
 #'
 #'
 #' @param x x is a dataframe containing 2 columns, positive weights and values of the objects.
