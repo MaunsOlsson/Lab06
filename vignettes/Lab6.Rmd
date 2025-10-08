@@ -72,15 +72,12 @@ end.time - start.time
 
 ```
 
-Våra bilder
-What performance gain could you get by trying to improving your code?
-greedy didn't need
-dynamic_optimization.png
+## Optimization of the algorithms
+For the greedy algortihm we did not see a need to optimize as it ran $n = 10^6$ without problem.
+
 brute_force_bild
 
-![Caption or alt text](path/to/image.png)
-```{r}
-getwd()
-```
+![Optimizing dynamic programming.](Images/dynamic_optimization.png)
+It turned out that for loops were faster than sapply in this situation which was surprising.
 
 
