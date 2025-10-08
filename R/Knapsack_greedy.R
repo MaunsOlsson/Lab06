@@ -39,6 +39,11 @@ knapsack_greedy <- function(x, W){
     if(sum(object$w[1:(i+1)])> W){break}
     i <- i + 1
   }
+  browser()
+  if (object$v[i+1] > cumsum) {
+    return(list(value = object$v[i+1], elements = as.numeric(rownames(object)[i + 1])))
+  }
+
   output <- list(value = cumsum, elements = vec)
   output
 }
