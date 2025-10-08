@@ -19,7 +19,7 @@ knapsack_objects <- data.frame(w = sample(1:4000, size = n, replace = TRUE),
 #' @param parallel TRUE or FALSE, decides if parallel computation should be used. Might not be faster on all computers.
 #'
 #' @returns The value of the best knapsack and the elements included in it.
-#' @importFrom parallel parSapply parLapply
+#' @importFrom parallel parSapply parLapply detectCores makeCluster stopCluster
 #' @export
 #'
 #'
@@ -47,9 +47,9 @@ knapsack_brute_force <- function(x, W, parallel = FALSE) {
   if (parallel) {
 
     cores <- parallel::detectCores()
-    cl <- makeCluster(cores, type = "PSOCK")
+    cl <- parallel::makeCluster(cores, type = "PSOCK")
 
-    availComb <- parLapply(cl = cl, 1:max_alt, function(i){
+    availComb <- parallel::parLapply(cl = cl, 1:max_alt, function(i){
       bits <- as.integer(intToBits(i)[1:n])
       list(value = sum(x$v * bits),
            weight = sum(x$w * bits),
@@ -59,13 +59,13 @@ knapsack_brute_force <- function(x, W, parallel = FALSE) {
 
 
 
-    filtered_values <- parSapply(cl = cl, availComb, function(i){
+    filtered_values <- parallel::parSapply(cl = cl, availComb, function(i){
       if(i$weight < W){
         return(i$value)
       }
       return(0)})
 
-    stopCluster(cl)
+    parallel::stopCluster(cl)
 
   } else {
 
@@ -93,12 +93,12 @@ knapsack_brute_force <- function(x, W, parallel = FALSE) {
               elements = availComb[[which.max(filtered_values)]]$elements))
 }
 
-start.time <- Sys.time()
-knapsack_brute_force(x = knapsack_objects[1:20,], W = 2000, parallel = TRUE)
-end.time <- Sys.time()
-end.time - start.time
-
-start.time <- Sys.time()
-knapsack_brute_force(x = knapsack_objects[1:20,], W = 2000, parallel = FALSE)
-end.time <- Sys.time()
-end.time - start.time
+# start.time <- Sys.time()
+# knapsack_brute_force(x = knapsack_objects[1:20,], W = 2000, parallel = TRUE)
+# end.time <- Sys.time()
+# end.time - start.time
+#
+# start.time <- Sys.time()
+# knapsack_brute_force(x = knapsack_objects[1:20,], W = 2000, parallel = FALSE)
+# end.time <- Sys.time()
+# end.time - start.time
