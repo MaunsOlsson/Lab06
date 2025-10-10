@@ -22,7 +22,7 @@ An approximation to the knapsack problem that runs in O(n log(n)) time.
 }
 \examples{
 
-knapsack_objects <- data("knapsack_objects")
+data("knapsack_objects")
 knapsack_greedy(x = knapsack_objects[1:1200,], W = 2000)
 
 

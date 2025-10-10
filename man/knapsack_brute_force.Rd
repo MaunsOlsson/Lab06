@@ -21,7 +21,7 @@ Solution to the knapsack problem that runs in O(2^n) time.
 }
 \examples{
 
-knapsack_objects <- data("knapsack_objects")
+data("knapsack_objects")
 knapsack_brute_force(x = knapsack_objects[1:8,], W = 2000)
 
 
