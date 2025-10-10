@@ -6,7 +6,7 @@
 <!-- badges: end -->
 
 This repository contains all the code that are needed to solve the exercises in lab06.
-This contains some knapsack algorithm.
+This contains some knapsack algorithms.
 
 ## Installation
 
@@ -14,8 +14,8 @@ You can install the development version of Lab06 this way:
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("arreen/wiki", build_vignettes = TRUE)
-library(wiki)
+# devtools::install_github("MaunsOlsson/Lab06", build_vignettes = TRUE)
+library(Lab06)
 ```
 
 ## Example

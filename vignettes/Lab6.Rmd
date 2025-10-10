@@ -17,6 +17,8 @@ knitr::opts_chunk$set(
 The aim of this package is to explore different knapsack algorithms, brute force, dynamic and greedy. All objects have a weight and value and the aim is to maximize the total value that fits in a knapsack of size W.
 
 ```{r setup}
+# install.packages("devtools")
+# devtools::install_github("MaunsOlsson/Lab06", build_vignettes = TRUE)
 library(Lab06)
 
 suppressWarnings(RNGversion(min(as.character(getRversion()),"3.5.3"))) 
@@ -38,10 +40,11 @@ end.time - start.time
 ```
 The following is the time brute force search takes with parallel computing.
 ```{r}
-start.time <- Sys.time()
-knapsack_brute_force(x = knapsack_objects[1:16,], W = 2000, parallel = TRUE)
-end.time <- Sys.time()
-end.time - start.time
+# This code cannot be ran in a vignette setting, to see the difference copy the code
+# start.time <- Sys.time()
+# knapsack_brute_force(x = knapsack_objects[1:16,], W = 2000, parallel = TRUE)
+# end.time <- Sys.time()
+# end.time - start.time
 ```
 
 
@@ -72,12 +75,17 @@ end.time - start.time
 
 ```
 
-## Optimization of the algorithms
-For the greedy algortihm we did not see a need to optimize as it ran $n = 10^6$ without problem.
+## Optimization of the algorithms'
+For the brute force algorithm our first solution involved true-false vectors while the second one had a bit solution that turned out to be much faster.
+![Brute force without bit implementation](Images/bad_brute_small.png)
+![Brute force with the bit implementation](Images/brute_small.png)
 
-brute_force_bild
+For the greedy algorithm we did not see a need to optimize as it ran $n = 10^6$ without problem.
+
 
 ![Optimizing dynamic programming.](Images/dynamic_optimization.png)
 It turned out that for loops were faster than sapply in this situation which was surprising.
+
+
 
 
