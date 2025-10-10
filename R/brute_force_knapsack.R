@@ -46,9 +46,7 @@ knapsack_brute_force <- function(x, W, parallel = FALSE) {
       )
     })
 
-
-
-    filtered_values <- parallel::parSapply(cl = cl, availComb, function(i){
+    filtered_values <- sapply(availComb, function(i){
       if(i$weight < W){
         return(i$value)
       }

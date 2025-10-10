@@ -5,14 +5,17 @@
 [![R-CMD-check](https://github.com/MaunsOlsson/Lab06/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/MaunsOlsson/Lab06/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
-The goal of Lab06 is to ...
+This repository contains all the code that are needed to solve the exercises in lab06.
+This contains some knapsack algorithm.
 
 ## Installation
 
-You can install the development version of Lab06 like so:
+You can install the development version of Lab06 this way:
 
 ``` r
-# FILL THIS IN! HOW CAN PEOPLE INSTALL YOUR DEV PACKAGE?
+# install.packages("devtools")
+devtools::install_github("arreen/wiki", build_vignettes = TRUE)
+library(wiki)
 ```
 
 ## Example
@@ -20,7 +23,8 @@ You can install the development version of Lab06 like so:
 This is a basic example which shows you how to solve a common problem:
 
 ``` r
-library(Lab06)
-## basic example code
+brute_force_knapsack(x=knapsack_objects[1:8,],W=3500)
+dynamic_knapsack(x=knapsack_objects[1:8,],W=3500)
+greedy_knapsack(x = knapsack_objects[1:800,], W = 3500)
 ```
 
