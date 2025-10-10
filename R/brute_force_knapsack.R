@@ -14,7 +14,7 @@
 #'
 #' @examples
 #'
-#' knapsack_objects <- data("knapsack_objects")
+#' data("knapsack_objects")
 #' knapsack_brute_force(x = knapsack_objects[1:8,], W = 2000)
 #'
 #'

@@ -12,7 +12,7 @@
 #'
 #' @examples
 #'
-#' knapsack_objects <- data("knapsack_objects")
+#' data("knapsack_objects")
 #' knapsack_greedy(x = knapsack_objects[1:1200,], W = 2000)
 #'
 #'

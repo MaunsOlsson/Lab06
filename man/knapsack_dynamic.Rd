@@ -22,7 +22,7 @@ Solution to the knapsack problem that runs in O(Wn) time.
 }
 \examples{
 
-knapsack_objects <- data("knapsack_objects")
+data("knapsack_objects")
 knapsack_dynamic(x = knapsack_objects[1:8,], W = 2000)
 
 
